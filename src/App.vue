@@ -1,9 +1,7 @@
 <template>
   <h1 class="title">Ingredient to meal</h1>
   <button @click="uploadImage" class="submit-button">Upload Image</button>
-  <button @click="uploadImage" class="submit-button">Upload Image</button>
-  <button @click="uploadImage" class="submit-button">Upload Image</button>
-  <button @click="uploadImage" class="submit-button">Upload Image</button>
+
 </template>
 
 <script>
@@ -11,8 +9,15 @@
 export default {
   name: 'App',
   components: {
+    imageFile: "",
+  },
+  methods: {
+    uploadImage(imageFile) {
+    
+    }
   }
 }
+
 </script>
 <style scoped>
 #app {
