@@ -22,6 +22,7 @@ def capture_and_save_frame():
             resized_frame = cv2.resize(frame, (512, 512))
             cv2.imwrite('captured_frame.jpg', resized_frame)
             break
+    print(cap)
     cap.release()
     return 'captured_frame.jpg'
 
