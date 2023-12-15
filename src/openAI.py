@@ -7,9 +7,11 @@ from flask_cors import CORS
 import json
 import textwrap
 from flask import Flask,jsonify,request
+from dotenv import load_dotenv
+load_dotenv()
+api_Key = os.getenv("OPENAI_KEy")
 app = Flask(__name__)
 CORS(app)
-api_key = "yourAPI key"
 @app.route ('/capture_and_save_frame', methods =['POST']) 
 def capture_and_save_frame():
     imagePath, response, status_code = fetchFromJson() # gets the imageurl from the front end
@@ -74,7 +76,7 @@ def encode_image(image_path):
 def AIReply(base64_image):
     headers = {
         "Content-Type": "application/json",
-        "Authorization": f"Bearer {api_key}"
+        "Authorization": f"Bearer {api_Key}"
     }
 
     payload = {
@@ -96,7 +98,7 @@ def AIReply(base64_image):
                 ]
             }
         ],
-        "max_tokens": 300
+        "max_tokens": 500
     }
 
     response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
