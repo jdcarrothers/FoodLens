@@ -72,7 +72,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: ;
+  margin: 0; 
   height: 200vw;
   width: 100vw;
   background: linear-gradient(to bottom, #000000, #333333);
