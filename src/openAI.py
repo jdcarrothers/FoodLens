@@ -9,7 +9,7 @@ import textwrap
 from flask import Flask,jsonify,request
 app = Flask(__name__)
 CORS(app)
-api_key = "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"
+api_key = "apik"
 @app.route ('/capture_and_save_frame', methods =['POST']) 
 def capture_and_save_frame():
     imagePath, response, status_code = fetchFromJson() # gets the imageurl from the front end
