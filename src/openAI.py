@@ -14,16 +14,15 @@ app = Flask(__name__)
 CORS(app)
 @app.route ('/capture_and_save_frame', methods =['POST']) 
 def capture_and_save_frame():
-    imagePath, response, status_code = fetchFromJson() # gets the imageurl from the front end
+    imagePath, response, status_code = fetchFromJson() #when moving between vue and py automaticaly passes through as encoded base_64
     if imagePath:
         print(imagePath)#prints in log
-        #enable the three commented methods for testing using image url relative to os system  
+        #these methods where still needed for testing purposes via postman
         # new_path = saveImageLocal(imagePath)    #saves the image to the local src in order for it to be acsessed by the python script
         # base64_image = encode_image(new_path)   #that new path gets incoded; allows chat gpt to process
         ai_response = AIReply(imagePath)     #ai responds with an answer regarding a possible recipe
         # removeImageLocal(new_path)              #removes the image after a response has been generated
         return jsonify({'result': ai_response}), 200 
-
     else:
         return response, status_code
     
