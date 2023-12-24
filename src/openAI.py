@@ -87,6 +87,7 @@ def AIReply(base64_image):
                     {
                         "type": "text",
                         "text": "What am i showing you will be ingredients, they will probably be random ingredients,start your response by provide a brief description of the ingredients you see and what you can make with them. You must come up with something that is a real recipe, but something that is possible to make with the ingredients you see. Keep the answer breif!"
+                        # used for checking my ui of coursework as capitalisation was an issue "text": "What i am showing you will be a interface from a quiz game i am building, you must carefully analyse the grammer and the layout of the quiz, correct me where i have gone wrong and be explicit, in your response write out all the issues and how i can fix it eg, telling me the grammar change, focus on incorrect capital letters "
                     },
                     {
                         "type": "image_url",
@@ -97,7 +98,7 @@ def AIReply(base64_image):
                 ]
             }
         ],
-        "max_tokens": 500
+        "max_tokens": 300
     }
 
     response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
