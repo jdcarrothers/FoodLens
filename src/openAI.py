@@ -25,7 +25,6 @@ def capture_and_save_frame():
         return jsonify({'result': ai_response}), 200 
     else:
         return response, status_code
-    
 def removeImageLocal(path):
     save_directory = 'src/'
     filename = os.path.basename(path)
@@ -98,7 +97,7 @@ def AIReply(base64_image):
                 ]
             }
         ],
-        "max_tokens": 300
+        "max_tokens": 30
     }
 
     response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)

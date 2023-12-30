@@ -31,8 +31,10 @@
             />
           </div>
         </div>
-        <div class="rectangle" />
-        <div class="text-wrapper">{{ confirmationMessage }}</div>
+        <div class="rectangle"><img :src="image" style="width: 100%; height: 100%;"></div>
+        <div class="text-wrapper">
+          {{ confirmationMessage }}
+        </div>
         <div class="loginbtn">
          <div class="label-wrapper">
             <input type="file" @change="onFileChange" class="file-input">
@@ -48,11 +50,7 @@
     </div>
   </div>
 </template>
-<!-- <template>
-  <div class="container">
-    <img :src="image" style="max-width: 200px;">
-  </div>
-</template> -->
+
 
 <script>
 import Ellipse from "../components/Ellipse.vue";
@@ -82,11 +80,10 @@ export default {
           imageFile: image
         }),
       })
-      //display the response from the API
         .then(response => response.json())
         .then(data => {
           this.loading = false;
-          this.confirmationMessage = "message sent successfully! The API responded with: " + data.result;
+          this.confirmationMessage = data.result;
         })
         .catch(error => {
           this.loading = false;
@@ -117,6 +114,7 @@ export default {
   flex-direction: row;
   justify-content: center;
   width: 100%;
+  height: 2000px;
 }
 
 .login .overlap-wrapper {
@@ -150,7 +148,7 @@ export default {
 .login .screen-size {
   background-color: #393939;
   filter: blur(4px);
-  height: 812px;
+  height: 2000px;
   left: 153px;
   position: absolute;
   top: 100px;
@@ -211,7 +209,7 @@ export default {
 
 .login .text-content {
   align-items: center;
-  box-shadow: 0px 4px 4px #00000040;
+  box-shadow: 0px 4px 4px #00000040;  
   display: flex;
   gap: 16px;
   justify-content: center;
@@ -283,6 +281,7 @@ export default {
   position: absolute;
   top: 390px;
   width: 244px;
+  overflow: hidden;
 }
 
 .login .text-wrapper {
@@ -290,14 +289,20 @@ export default {
   font-family: "Raleway", Helvetica;
   font-size: 14px;
   font-weight: 700;
-  height: 21px;
-  left: 305px;
+  height: 10px;
+  left: 195px;
   letter-spacing: 0;
   line-height: 21px;
   position: absolute;
   text-align: center;
   top: 747px;
   white-space: nowrap;
+  padding: 10px;
+  width: 300px; 
+  height: 200px;
+  border: 1px solid #000;
+  padding: 20px;
+  overflow: auto;
 }
 
 .login .loginbtn {
