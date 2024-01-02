@@ -1,4 +1,4 @@
-# webai
+First website project, allows users to upload an image to a website, a script then reads the ingredients and responds back to the user with what they can make
 
 ## Project setup
 ```
