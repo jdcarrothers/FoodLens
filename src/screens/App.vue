@@ -17,9 +17,9 @@
       </div>
     </nav>
     <div class="content">
-      <div class="text-block">Upload an image to see what you can make</div>
+      <div class="text-header">Upload an image to see what you can make</div>
       <div class="image-visual">
-        <img :src="image" style="width: 100%; height: 100%;">
+        <img :src="image" style="height: 400px; width: 400px;">
       </div>
       <div class="buttons">
           <label for="fileInput" class="button">
@@ -28,13 +28,25 @@
           </label>
       </div>
       <div class="text-block">
-        <!-- <p>{{ confirmationMessage }}</p> -->
-        <p>This code retains your existing button styles
-           and integrates the file input into the button
-            using the label element. The file input is
-             positioned absolutely to cover the entire
-              button, making the entire area clickable
-               for file input.</p>
+        <p>{{ confirmationMessage }}</p>
+      </div>
+      <div class="header">How It Works</div>
+      <div class="image-with-text">
+        <div class="text">
+          <p>
+          When you upload an image, it undergoes a transformation into a series of letters that symbolize the visual content.
+          These letters are then transmitted to a script located elsewhere. The script reverses the process, converting the letters back into the original image.
+          <br>
+          <br>
+          Subsequently, the image is forwarded to an API that utilizes it to identify the ingredients depicted. The API then searches for a corresponding recipe based on the identified ingredients. The resulting recipe is sent back to the script, which in turn relays it to the website.
+          <br>
+          <br>
+          Simultaneously, another API is employed to locate a YouTube video featuring the prepared recipe. The video is retrieved and sent back to the website, allowing you to watch it.
+          </p>
+        </div>
+        <div class="flow-image">
+          <img src="../assets/flowchart.png" alt="">
+        </div>
       </div>
     </div>
   </div>
@@ -106,7 +118,7 @@ export default {
       }
       else if(distance === 'how-it-works'){
         window.scrollTo({
-          top: window.innerHeight,
+          top: window.innerHeight -25,
           behavior: 'smooth'
         });
       }
@@ -120,7 +132,38 @@ export default {
   },
 }
 </script>
+
 <style scoped>
+.flow-image{
+  transform: scale(0.6);
+  margin-top: -68%;
+  margin-left: -15%;
+}
+.image-with-text{
+  gap: 4%;
+  margin-top: 4%;
+  font-family: Arial, sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+}
+.text{
+  padding-left: 50%;
+  padding-right: 11%;
+  margin-bottom: 5%;
+  line-height: 61px;
+  color: white;
+}
+.text-header{
+  font-family: Arial, sans-serif;
+  margin-bottom: 5%;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 61px;
+  color: white;
+  background-color: #0a3a2a;
+  width: 100%;
+  text-align: center;
+}
 .text-block{
   margin-top: 4%;
   font-family: Arial, sans-serif;
@@ -128,16 +171,26 @@ export default {
   font-weight: bold;
   padding-left: 11%;
   padding-right: 11%;
-  margin-bottom: 4%;
+  margin-bottom: 5%;
   line-height: 61px;
   color: white;
+}
+.header {
+  font-family: Arial, sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 61px;
+  color: white;
+  background-color: #0a3a2a;
+  width: 100%;
+  text-align: center;
 }
 .image-visual {
   background-color: #d9d9d9;
   border-radius: 42px;
-  overflow: hidden;
   height: 400px;
   width: 400px;
+  overflow: hidden;
 }
 * {
   margin: 0;
@@ -157,12 +210,16 @@ export default {
   padding: 10px 20px;
   color: white;
   font-family: Arial, sans-serif;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
 }
 .content{
   background: linear-gradient(to bottom, #0A3A2A, #137a63);
   background: -webkit-linear-gradient(top, #0A3A2A, #137a63);
   color: white;
-  height: 200vh;
+  height: 300vh;
   display: flex;
   align-items: center;
   flex-direction: column;
