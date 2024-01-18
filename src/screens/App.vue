@@ -17,7 +17,7 @@
       </div>
     </nav>
     <div class="content">
-      <div class="text-header">Upload an image to see what you can make</div>
+      <div class="text-header">Explore possible recipes</div>
       <div class="image-visual">
         <img :src="image" style="height: 400px; width: 400px;">
       </div>
@@ -27,40 +27,28 @@
               {{ loading ? 'Loading Response......' : 'Upload' }}
           </label>
       </div>
-      <div class="text-block">
-        <p>{{ confirmationMessage }}</p>
-      </div>
-      <div class="header">How It Works</div>
-      <div class="image-with-text">
-        <div class="text">
-          <p>
-          When you upload an image, it undergoes a transformation into a series of letters that symbolize the visual content.
-          These letters are then transmitted to a script located elsewhere. The script reverses the process, converting the letters back into the original image.
-          <br>
-          <br>
-          Subsequently, the image is forwarded to an API that utilizes it to identify the ingredients depicted. The API then searches for a corresponding recipe based on the identified ingredients. The resulting recipe is sent back to the script, which in turn relays it to the website.
-          <br>
-          <br>
-          Simultaneously, another API is employed to locate a YouTube video featuring the prepared recipe. The video is retrieved and sent back to the website, allowing you to watch it.
-          </p>
-        </div>
-        <div class="flow-image">
-          <img src="../assets/flowchart.png" alt="">
-        </div>
-      </div>
+      <p class = "text-block">This is where the API response will be i am going to test this with a load of nothing text therefore i can preview what 
+        the text will look like i am nearly done yap yao yapo yao 
+        {{ confirmationMessage }}
+      </p>
+      <!-- <a href=""></a> YOUTUBE LINK TO RECIPE -->
     </div>
+    <div class="header">How It Works</div>
+    <HowItWorksScreen/>
+    <TechnologiesScreen/>
   </div>
+  <!-- ending app id div ^^ -->
 </template>
-<!-- <input type="file" @change="onFileChange" class="file-input">
-<div class="label">{{ loading ? 'Loading Response......' : 'Upload Image' }}</div> -->
-<!-- <div class="text-wrapper">
-  {{ confirmationMessage }}
-</div> -->
+
 
 <script>
+import HowItWorksScreen from '../components/HowItWorksScreen.vue'; 
+import TechnologiesScreen from '../components/TechnologiesScreen.vue'; 
 export default {
   name: 'App',
   components: {
+    HowItWorksScreen,
+    TechnologiesScreen,
   },
   data() {
     return {
@@ -134,25 +122,6 @@ export default {
 </script>
 
 <style scoped>
-.flow-image{
-  transform: scale(0.6);
-  margin-top: -68%;
-  margin-left: -15%;
-}
-.image-with-text{
-  gap: 4%;
-  margin-top: 4%;
-  font-family: Arial, sans-serif;
-  font-size: 36px;
-  font-weight: bold;
-}
-.text{
-  padding-left: 50%;
-  padding-right: 11%;
-  margin-bottom: 5%;
-  line-height: 61px;
-  color: white;
-}
 .text-header{
   font-family: Arial, sans-serif;
   margin-bottom: 5%;
@@ -174,6 +143,7 @@ export default {
   margin-bottom: 5%;
   line-height: 61px;
   color: white;
+  margin-bottom: 5%;
 }
 .header {
   font-family: Arial, sans-serif;
@@ -206,7 +176,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #137A63;
+  background: #0a3a2a;
   padding: 10px 20px;
   color: white;
   font-family: Arial, sans-serif;
@@ -216,10 +186,9 @@ export default {
   z-index: 9999;
 }
 .content{
-  background: linear-gradient(to bottom, #0A3A2A, #137a63);
-  background: -webkit-linear-gradient(top, #0A3A2A, #137a63);
+  background-color: #2c4c3b;
   color: white;
-  height: 300vh;
+  height: auto;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -335,7 +304,60 @@ export default {
     left: 0;
     background: #137A63;
   }
+  @media (max-width: 768px) {
+    .nav-buttons {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      background: #137A63;
+    }
 
+    .nav-buttons.is-active {
+      display: flex;
+    }
+
+    .burger-menu {
+      display: block;
+    }
+
+    .content {
+      transform: scale(1);
+      font-size: 16px;
+      margin-top: 40px;
+    }
+    .text-header{
+      font-size: 36px;;
+    }
+    .text-block{
+    margin-top: 4%;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+    .nav-label {
+      font-size: 16px;
+    }
+
+    .button {
+      width: 300px;
+      height: 41px;
+      font-size: 24px;
+      line-height: 41px;
+    }
+    .brand {
+      padding-left: 2%;
+    }
+    .image-visual {
+      height: 300px;
+      width: 300px;
+      margin-top: 10%;
+    }
+  }
   .nav-buttons.is-active {
     display: flex;
   }
@@ -344,7 +366,4 @@ export default {
     display: block;
   }
 }
-
-
-
 </style>
