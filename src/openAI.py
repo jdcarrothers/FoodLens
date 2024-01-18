@@ -16,7 +16,7 @@ CORS(app)
 def capture_and_save_frame():
     imagePath, response, status_code = fetchFromJson() #when moving between vue and py automaticaly passes through as encoded base_64
     if imagePath:
-        print(imagePath)#prints in log
+        # print(imagePath)#prints in log
         #these methods where still needed for testing purposes via postman
         # new_path = saveImageLocal(imagePath)    #saves the image to the local src in order for it to be acsessed by the python script
         # base64_image = encode_image(new_path)   #that new path gets incoded; allows chat gpt to process
@@ -97,7 +97,7 @@ def AIReply(base64_image):
                 ]
             }
         ],
-        "max_tokens": 30
+        "max_tokens": 3
     }
 
     response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
@@ -109,6 +109,8 @@ def AIReply(base64_image):
         ai_response = "No response received."
     print(ai_response)
     return ai_response
+
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
