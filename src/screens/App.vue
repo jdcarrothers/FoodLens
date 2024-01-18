@@ -63,7 +63,7 @@ export default {
       sendURL(image) {
       //send image path to api 
       this.loading = true;
-      fetch(`${process.env.host}/capture_and_save_frame`, {
+      fetch(`${process.env.VUE_APP_HOST}/capture_and_save_frame`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
