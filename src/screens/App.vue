@@ -63,7 +63,7 @@ export default {
       sendURL(image) {
       //send image path to api 
       this.loading = true;
-      fetch("http://127.0.0.1:5000/capture_and_save_frame", {
+      fetch(`${process.env.host}/capture_and_save_frame`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
