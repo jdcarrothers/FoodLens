@@ -4,6 +4,14 @@
             
         <div class="text">
             <div class="box">
+                Github
+                <img src="../assets/github.png" alt="" class="img">
+                <a href="https://github.com/jdcarrothers/webai" style="margin-top: ;">
+                    <span v-if="$mq === 'mobile'">Tap</span>
+                    <span v-else>Click</span> to view repository
+                </a>
+            </div>
+            <div class="box">
                 Vue.js
                 <img src="../assets/vue.png" alt="" class="img">
             </div>
@@ -48,11 +56,26 @@
 
 <script>
 export default {
-
+    data() {
+    return {
+      mobile: false,
+    };
+  },
 }
 </script>
 
 <style scoped>
+.box a{
+    padding-top: 50px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    text-align: center;
+
+}
 .box{
     display: flex;
     flex-direction: column;

@@ -16,6 +16,7 @@
           <!-- frame works and languages used -->
       </div>
     </nav>
+    <div ref="homeElement"></div>
     <div class="content">
       <div class="text-header">Upload an image to see what you can make</div>
       <div class="image-visual">
@@ -33,7 +34,10 @@
       <!-- <a href=""></a> YOUTUBE LINK TO RECIPE -->
     </div>
     <div class="header">How It Works</div>
+    
+    <div ref="howItWorksElement"></div>
     <HowItWorksScreen/>
+    <div ref="technologiesElement"></div>
     <TechnologiesScreen/>
   </div>
   <!-- ending app id div ^^ -->
@@ -97,27 +101,32 @@ export default {
       this.menuActive = !this.menuActive;
     },
     scrollToTop(distance) {
-      if(distance === 'home'){
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      }
-      else if(distance === 'how-it-works'){
-        window.scrollTo({
-          top: window.innerHeight -25,
-          behavior: 'smooth'
-        });
-      }
-      else if(distance === 'technologies'){
-        window.scrollTo({
-          top: window.innerHeight * 2,
-          behavior: 'smooth'
-        });
-      }
-    },
+    let targetElement;
+
+    switch (distance) {
+      case 'home':
+        targetElement = this.$refs.homeElement;
+        break;
+      case 'how-it-works':
+        targetElement = this.$refs.howItWorksElement;
+        break;
+      case 'technologies':
+        targetElement = this.$refs.technologiesElement;
+        break;
+      default:
+        return; // Do nothing if distance is not recognized
+    }
+
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        easing: 'cubic-bezier(0.4, 0, 0.2, 1)' // Add easing property for acceleration and deceleration
+      });
+    }
   },
-}
+},
+};  
 </script>
 
 <style scoped>
