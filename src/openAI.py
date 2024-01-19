@@ -96,7 +96,7 @@ def AIReply(base64_image):
                 ]
             }
         ],
-        "max_tokens": 3
+        "max_tokens": 300
     }
 
     response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)

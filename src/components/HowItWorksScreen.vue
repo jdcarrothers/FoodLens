@@ -11,6 +11,7 @@
                 Subsequently, the image is forwarded to an API that utilizes it to identify the ingredients depicted. The API then searches for a corresponding recipe based on the identified ingredients. The resulting recipe is sent back to the script, which in turn relays it to the website.
                 <br>
                 <br>
+                **future update**
                 Simultaneously, another API is employed to locate a YouTube video featuring the prepared recipe. The video is retrieved and sent back to the website, allowing you to watch it.
                 </p>
         </div> 
@@ -58,6 +59,7 @@ export default {
   font-family: Arial, sans-serif;
   font-size: 30px;
   font-weight: bold;
+  padding-bottom: 5%;
 }
 @media (max-width: 768px) {
     .main-container{

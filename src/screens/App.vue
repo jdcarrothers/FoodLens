@@ -17,7 +17,7 @@
       </div>
     </nav>
     <div class="content">
-      <div class="text-header">Explore possible recipes</div>
+      <div class="text-header">Upload an image to see what you can make</div>
       <div class="image-visual">
         <img :src="image" style="height: 400px; width: 400px;">
       </div>
@@ -27,8 +27,7 @@
               {{ loading ? 'Loading Response......' : 'Upload' }}
           </label>
       </div>
-      <p class = "text-block">This is where the API response will be i am going to test this with a load of nothing text therefore i can preview what 
-        the text will look like i am nearly done yap yao yapo yao 
+      <p class = "text-block">
         {{ confirmationMessage }}
       </p>
       <!-- <a href=""></a> YOUTUBE LINK TO RECIPE -->
